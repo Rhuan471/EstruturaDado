@@ -1,36 +1,27 @@
-package Exercicios.Vetores;
+import estruturas.Lista;
 
-import java.util.Scanner;
 
 public class VetorApp {
 
-        for(int i = 0; i < arr.lenght; i++){
-            arr[i] = i * 2;
-            System.out.println(arr[i]);
-        }
-
-        System.out.println("Qual número você busca?");
-        Scanner leitor = new Scanner(System.in);
-        int buscado = leitor.nextInt();
+    public static void main(String[] args) {
+        Lista lista = new Lista();
         
-        boolean achou = false;
-        int inicio = 0;
-        int fim = arr.lenght - 1;
-        int meio;
-        while(inicio <= fim){
-            meio = (int) ((inicio + fim) / 2);
-            if (arr[meio] == buscado){
-                lista.mostrarNos();
+        lista.adicionarAoInicio(54);
+        lista.adicionarAoInicio(42);
+        lista.adicionarAoInicio(33);
+        lista.adicionarAoInicio(27);
+        lista.adicionarAoInicio(21);
+        lista.adicionarAoInicio(16);
+        lista.adicionarAoInicio(12);
+        lista.adicionarAoInicio(9);
+        lista.adicionarAoInicio(7);
+        lista.adicionarAoInicio(2);
 
-            }
-        
-            container.get.Lenght();
-            container.printList();
-    
-            System.out.println("-");
-            container.printList();
-            System.out.println("--");
-    
-            container.insert(16,60);
-            container.printList();
+        lista.mostrarNos();
+
+        System.out.println("-----");
+
+        lista.remover(21);
+        lista.mostrarNos();
     }
+}
