@@ -1,27 +1,55 @@
 import estruturas.Lista;
-
+import estruturas.Interador;
+import estruturas.No;
+import estruturas.Vetor;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VetorApp {
 
-    public static void main(String[] args) {
-        Lista lista = new Lista();
-        
-        lista.adicionarAoInicio(54);
-        lista.adicionarAoInicio(42);
-        lista.adicionarAoInicio(33);
-        lista.adicionarAoInicio(27);
-        lista.adicionarAoInicio(21);
-        lista.adicionarAoInicio(16);
-        lista.adicionarAoInicio(12);
-        lista.adicionarAoInicio(9);
-        lista.adicionarAoInicio(7);
-        lista.adicionarAoInicio(2);
+    private List<Integer> historico = new ArrayList<>();
+    private Vetor vetor = new Vetor();
 
-        lista.mostrarNos();
+    public static void main(String[] args) {
+        VetorApp app = new VetorApp();
+
+        app.vetor.adicionar(54);
+        app.vetor.adicionar(42);
+        app.vetor.adicionar(33);
+        app.vetor.adicionar(27);
+        app.vetor.adicionar(21);
+        app.vetor.adicionar(16);
+        app.vetor.adicionar(12);
+        app.vetor.adicionar(9);
+        app.vetor.adicionar(7);
+        app.vetor.adicionar(2);
+
+        app.vetor.mostrarElementos();
 
         System.out.println("-----");
 
-        lista.remover(21);
-        lista.mostrarNos();
+        app.vetor.remover(21);
+        app.vetor.mostrarElementos();
+
+        app.add(54);
+        app.commit();
+
+        System.out.println("-----");
+
+        System.out.println("Histórico: " + app.getHistorico());
+    }
+
+    public void commit() {
+        System.out.println("Commit realizado. Mudanças aplicadas.");
+        historico.add(vetor.getTamanho()); // Adiciona o tamanho do vetor ao histórico
+    }
+
+    public void add(int valor) {
+        System.out.println("Mudanças adicionadas. Aguarde o commit.");
+        vetor.adicionar(valor);
+    }
+
+    public List<Integer> getHistorico() {
+        return historico;
     }
 }
